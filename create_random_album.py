@@ -4,6 +4,7 @@ from __future__ import annotations
 import random
 import tarfile
 import logging
+import shutil
 from pathlib import Path
 from dataclasses import dataclass
 import argparse
