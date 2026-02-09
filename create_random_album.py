@@ -97,6 +97,18 @@ def create_random_album(cfg: Config) -> None:
 def archive_album(files: list[Path], destination: Path) -> Path:
     destination.mkdir(parents=True, exist_ok=True)
 
+    videos_directory = destination / "videos"
+    videos_directory.mkdir(parents=True, exist_ok=True)
+
+    photos_directory = destination / "photos"
+    photos_directory.mkdir(parents=True, exist_ok=True)
+
+    for f in files:
+        if f.suffix.lower() in [".jpg", ".jpeg"]:
+            shutil.copy(f, photos_directory / f.name)
+        elif f.suffix.lower() == ".mp4":
+            shutil.copy(f, videos_directory / f.name)
+
     archive = destination.parent / "archive.tar.gz"
 
     with tarfile.open(archive, "w:gz") as tar:
