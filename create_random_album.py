@@ -48,8 +48,8 @@ def select_random_files(albums: list[Path], cfg: Config) -> list[Path]:
     visited_files: set[Path] = set()
 
     for album in albums:
-        files = [f for f in get_files_from_album(album, cfg.extensions) if f
-                 not in visited_files]
+        files = [f for f in get_files_from_album(album, cfg.extensions)
+                 if f not in visited_files]
 
         if not files:
             continue
