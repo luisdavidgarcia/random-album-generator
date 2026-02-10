@@ -147,7 +147,7 @@ def parse_args() -> Config:
     return Config(
             source=Path(args.source),
             destination=Path(args.destination),
-            max_size=args.max_size,
+            max_size_bytes=args.max_size_gb*(1024**3),
             extensions=set(args.extensions),
             verbose=args.verbose,
     )
