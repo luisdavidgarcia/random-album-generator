@@ -102,10 +102,10 @@ def create_random_album(cfg: Config) -> None:
 def archive_album(files: list[Path], destination: Path) -> Path:
     destination.mkdir(parents=True, exist_ok=True)
 
-    videos_directory = destination / "videos"
+    videos_directory = destination / "video"
     videos_directory.mkdir(parents=True, exist_ok=True)
 
-    photos_directory = destination / "photos"
+    photos_directory = destination / "photo"
     photos_directory.mkdir(parents=True, exist_ok=True)
 
     for f in files:
