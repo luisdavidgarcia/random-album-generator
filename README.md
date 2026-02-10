@@ -19,13 +19,13 @@ the destination directory for the generated album
     python generate_album.py /path/to/photo-library /path/to/save-album 5
     ```
 
-    **Arguments:**
+**Arguments:**
 
-        * **Source directory:** The folder containing your photos/videos.
-        * **Destination directory:** The folder where the album will be saved. 
-            The folder will be created if it doesn't exist.
-        * **Album size (GB):** The desired size of the generated album (e.g., 
-                5 for a 5GB album).
+* **Source directory:** The folder containing your photos/videos.
+* **Destination directory:** The folder where the album will be saved. 
+    The folder will be created if it doesn't exist.
+* **Album size (GB):** The desired size of the generated album (e.g., 
+        5 for a 5GB album).
 
 ---
 
