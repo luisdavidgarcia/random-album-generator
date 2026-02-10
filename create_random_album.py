@@ -114,8 +114,11 @@ def archive_album(files: list[Path], destination: Path) -> Path:
     archive = destination.parent / "archive.tar.gz"
 
     with tarfile.open(archive, "w:gz") as tar:
-        for f in files:
-            tar.add(f, arcname=f.name)
+        tar.add(videos_directory, arcname=videos_directory.name)
+        logging.debug(f"Adding {videos_directory} to archive...")
+
+        tar.add(photos_directory, arcname=photos_directory.name)
+        logging.debug(f"Adding {photos_directory} to archive...")
 
     return archive
 
