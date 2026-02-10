@@ -123,7 +123,7 @@ def archive_album(files: list[Path], destination: Path) -> Path:
     return archive
 
 
-def main() -> None:
+def parse_args() -> Config:
     parser = argparse.ArgumentParser(
         description="Create a random album with size limits.")
     parser.add_argument("source")
