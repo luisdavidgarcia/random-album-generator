@@ -56,9 +56,7 @@ def select_random_files(albums: list[Path], cfg: Config) -> list[Path]:
 
         random.shuffle(files)
 
-        num_files_to_select = random.randint(1, 6)
-
-        for f in files[:num_files_to_select]:
+        for f in files:
             size = f.stat().st_size
 
             if total_size + size > cfg.max_size:
