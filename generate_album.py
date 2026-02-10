@@ -131,9 +131,9 @@ def parse_args() -> Config:
         description="Create a random album with size limits.")
     parser.add_argument("source")
     parser.add_argument("destination")
-    parser.add_argument("--max_size", type=int, default=1024**3)
+    parser.add_argument("--max_size_gb", type=int, default=1)
     parser.add_argument("--extensions", nargs="*",
-                        default=[".jpg", ".jpeg", ".png", ".mp4"])
+                        default=[".jpg", ".jpeg", ".mp4"])
     parser.add_argument("--verbose", action="store_true")
 
     args = parser.parse_args()
