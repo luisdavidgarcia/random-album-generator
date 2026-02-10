@@ -135,7 +135,13 @@ def parse_args() -> Config:
 
     args = parser.parse_args()
 
-    cfg = Config(
+    if not args.destination.exists():
+        args.destination.mkdir(parent=True)
+
+    if not args.destination.is_dir():
+        raise SystemExit("Destination must be a directory")
+
+    return Config(
             source=Path(args.source),
             destination=Path(args.destination),
             max_size=args.max_size,
