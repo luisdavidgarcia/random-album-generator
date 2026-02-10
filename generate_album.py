@@ -85,14 +85,14 @@ def create_random_album(cfg: Config) -> None:
     selected_files = select_random_files(albums, cfg)
     if not selected_files:
         logging.warning((
-            "No files selected. Try increasing max_size or",
+            "No files selected. Try increasing max_size_gb or",
             "checking extensions."))
         return
 
-    total_size = sum(f.stat().st_size for f in selected_files)
+    total_size_bytes = sum(f.stat().st_size for f in selected_files)
     logging.info(f"Selected {len(selected_files)} files,")
     logging.info(
-            f"Total album size: {total_size / (1024 ** 3):.2f} GB"
+            f"Total album size: {total_size_bytes / (1024 ** 3):.2f} GB"
     )
 
     archive = archive_album(selected_files, cfg.destination)
