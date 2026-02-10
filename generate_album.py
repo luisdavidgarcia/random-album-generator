@@ -135,10 +135,10 @@ def parse_args() -> Config:
 
     args = parser.parse_args()
 
-    if not args.destination.exists():
+    if not Path(args.destination).exists():
         args.destination.mkdir(parent=True)
 
-    if not args.destination.is_dir():
+    if not Path(args.destination).is_dir():
         raise SystemExit("Destination must be a directory")
 
     return Config(
