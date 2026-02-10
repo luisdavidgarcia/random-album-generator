@@ -14,7 +14,7 @@ import argparse
 class Config:
     source: Path
     destination: Path
-    max_size: int
+    max_size_bytes: int
     extensions: set[str]
     verbose: bool
 
