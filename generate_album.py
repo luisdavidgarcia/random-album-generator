@@ -77,6 +77,7 @@ def create_random_album(cfg: Config) -> None:
     setup_logging(cfg.verbose)
 
     albums = get_all_albums(cfg.source)
+    logging.debug(f"Selected {len(albums)} albums.")
     if not albums:
         logging.error("No albums found.")
         return
