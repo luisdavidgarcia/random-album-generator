@@ -149,12 +149,9 @@ def parse_args() -> Config:
             verbose=args.verbose,
     )
 
-    if not cfg.destination.exists():
-        cfg.destination.mkdir(parent=True)
 
-    if not cfg.destination.is_dir():
-        raise SystemExit("Destination must be a directory")
-
+def main() -> None:
+    cfg = parse_args()
     create_random_album(cfg)
 
 
