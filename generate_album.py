@@ -50,21 +50,25 @@ def select_random_files(albums: list[Path], cfg: Config) -> list[Path]:
     for album in albums:
         files = [f for f in get_files_from_album(album, cfg.extensions)
                  if f not in visited_files]
+        logging.debug(f"{len(files)} files in {album}")
 
         if not files:
+            logging.debug(f"{album} has no files.")
             continue
 
         random.shuffle(files)
 
         for f in files:
             size = f.stat().st_size
+            logging.debug(f"{f.name} size: {size / (1024**2):.2f} MB")
 
-            if total_size + size > cfg.max_size:
+            if total_size + size > cfg.max_size_bytes:
                 return selected_files
 
             selected_files.append(f)
             visited_files.add(f)
             total_size += size
+            logging.debug(f"Selected file {f.name}")
 
     return selected_files
 
