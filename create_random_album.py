@@ -89,7 +89,7 @@ def create_random_album(cfg: Config) -> None:
     total_size = sum(f.stat().st_size for f in selected_files)
     logging.info(f"Selected {len(selected_files)} files,")
     logging.info(
-            f"Total album size: {total_size / (1024 * 1024 * 1024):.2f} GB"
+            f"Total album size: {total_size / (1024 ** 3):.2f} GB"
     )
 
     archive = archive_album(selected_files, cfg.destination)
